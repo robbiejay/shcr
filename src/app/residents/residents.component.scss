@@ -1,7 +1,8 @@
 .container-fluid {
   padding-top: 0px;
   padding-bottom: 35px;
-  background-color: #f0f0f0;
+  background: rgb(246,246,246);
+background: linear-gradient(315deg, rgba(216,216,216,1) 0%, rgba(246,246,246,1) 100%);
   padding: 2%;
 
 }
@@ -12,7 +13,9 @@
 
 .chinesetext {
 //  font-family: 'GBK'!important;
-  color: #000;
+color: #0000;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #2d3941;
 }
 
 
@@ -46,8 +49,10 @@
   padding: 14px 14px;
   transition: 0.2s;
   font-family: "Exo 2";
-  box-shadow: -8px -8px 8px 0px rgba(255,255,255,0.4) inset,
-  2px 2px 8px 0px rgba(0,0,0,0.4) inset;
+  box-shadow: -8px -8px 8px 0px rgba(255,255,255,0.4),
+  2px 2px 8px 0px rgba(0,0,0,0.4);
+  background-color: rgb(233,233,233);
+  background: linear-gradient(135deg, rgba(233,233,233,0.5357493339132529) 0%, rgba(240,240,240,0.5357493339132529) 60%, rgba(255,255,255,1) 100%);
 }
 
 .see-all-residents:hover {
@@ -83,12 +88,11 @@ h1 {
   font-size: 1.333em;
   padding-top: 70px;
   padding-bottom: 7px;
-  margin-left: 35px;
+  margin-left: 0px;
   font-family: "Exo 2", monospace;
   width: 240px;
   font-weight: 900;
-  color: #787878;
-  margin-bottom: 23px;
+  color:#2d3941;
 
 }
 

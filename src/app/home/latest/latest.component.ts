@@ -85,10 +85,10 @@ export class LatestComponent implements OnInit {
         this.isLoading = false;
         data.body.forEach(show => {
           let featured_img;
-          if(show.image_full == "DEFAULT") {
+          if(show.image_thumbnail == "DEFAULT") {
             featured_img = "assets/default_show.png";
           } else {
-            featured_img = show.image_full;
+            featured_img = show.image_thumbnail;
           }
           let titleArr = this.helpersService.HtmlEncode(show.title).split('–');
           let date = titleArr.pop();

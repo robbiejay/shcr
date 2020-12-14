@@ -4,10 +4,10 @@
 <div class='row show-header'>
   <div class='col-12 col-sm-6'>
 <h1><span class="chinesetext">最新节目</span> LATEST
-  <div class='controls-container'>
+  <!-- <div class='controls-container'>
     <button class='controls' *ngIf='mode == "home"' (click)='prevShowPage()'><</button>
     <button class='controls' *ngIf='mode == "home"' (click)='nextShowPage()'>></button>
-  </div>
+  </div> -->
   </h1>
   </div>
             <div class='col-12 col-sm-6'>
@@ -43,6 +43,12 @@
   </div>
   </div>
 </div>
+</div>
+</div>
+<div class='show-card-container see-all-shows' style='padding:0px 7px;' >
+<div [@fade]='state' class='show-card' routerLink='/shows'>
+  <h1><i class="fas fa-globe" style='font-size: 5em;'></i></h1>
+  <h1>See All Shows</h1>
 </div>
 </div>
 </div>

@@ -1,6 +1,6 @@
 .fluid-container {
   padding: 0px 7px 0px 7px;
-  margin-top: 70px;
+  margin-top: 140px;
 
 }
 
@@ -36,7 +36,7 @@ h1 {
 .show-scroller-container {
   width: 100vw;
   overflow-x: scroll !important;
-  white-space: nowrap;
+
   padding: 0px 7px 0px 7px;
   margin-bottom: 70px;
 }
@@ -239,6 +239,19 @@ color: #000;}
 
 }
 
+i {
+  text-align: center;
+  margin-top: 33.333%;
+  color: transparent;
+  -webkit-text-stroke-color: #999;
+  -webkit-text-stroke-width: 2px;
+}
+
+.see-all-shows h1 {
+  text-align: center;
+  color: inherit;
+}
+
 .show-header h2:hover {
   color: #333;
 }
@@ -372,7 +385,7 @@ min-height: 360px;
 @media (max-width: 576px) {
 
   .show-scroller {
-  width: 700vw;
+  width: 725vw;
   }
 
   .show-card {
