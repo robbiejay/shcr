@@ -119,6 +119,7 @@ display: none !important;
 }
 
 /* width */
+
 ::-webkit-scrollbar {
   width: 2px;
   transition: 0.2s;
@@ -138,6 +139,23 @@ display: none !important;
 
 ::-webkit-scrollbar:hover {
   width: 10px;
+}
+
+.show-scroller-container::-webkit-scrollbar {
+  width: 2px;
+  transition: 0.2s;
+  display: none;
+}
+
+/* Track */
+.show-scroller-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.show-scroller-container::-webkit-scrollbar-thumb {
+  background: #00f;
+
 }
 
 .btn-neumorphic{

@@ -252,6 +252,11 @@ cursor: crosshair;
     margin-top: 14px;
     top: 0;
     display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 12.5vh;
 
   }
 
