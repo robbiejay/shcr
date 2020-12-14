@@ -1,0 +1,65 @@
+.chinesetext {
+  //font-family: 'GBK'!important;
+  color: black;
+  -webkit-text-stroke-width: 0px;
+}
+
+.heading {
+  font-size: 1.777em;
+  color: #8f8f8f;
+  margin-top: 70px;
+  margin-bottom: 35px;
+}
+
+.img-container {
+  width: 100%;
+  height: auto;
+}
+
+.img-container img {
+  width: 100%;
+  max-height: 195px;
+}
+
+.post-title {
+  font-size: 1em;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding: 7px 35px;
+  font-weight: 700;
+}
+
+.post-excerpt {
+  padding: 0px 35px;
+  margin-bottom: 19px;
+  font-size: 0.75em;
+}
+
+.post-card {
+  cursor: pointer;
+  background: rgba(255,255,255,0.75);
+  margin-bottom: 25px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: -8px -8px 8px 0px rgba(255,255,255,0.4) inset,
+  2px 2px 8px 0px rgba(0,0,0,0.4) inset;
+  min-height: 22rem;
+}
+
+@media (max-width: 1200px) {
+  .img-container img {
+    max-height: 160px;
+  }
+}
+
+@media (max-width: 992px) {
+  .img-container img {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-container img {
+    max-height: initial;
+  }
+}

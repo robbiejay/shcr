@@ -1,0 +1,30 @@
+<div class="fluid-container" style='background-color: #e0e0e0;position:relative;padding:70px 0px;'>
+<div class="container upcoming-container">
+  <div class='inner-horizontal-container'>
+  <h1><span class="chinesetext">節目表</span> UPCOMING</h1>
+  <div class='upcoming-card' *ngFor='let show of upcomingShows; let i = index;' (click)="goTo(show.filename)">
+  <div class="row">
+    <div class="col-4" style='padding: 0px;'>
+      <div class="upcoming-img-container">
+      <img [src]="show.featured_image"/>
+      </div>
+
+    </div>
+    <div class="col-8">
+      <h2 class='upcoming-title'>{{show.title}} &nbsp;
+        <span class='upcoming-now-playing' *ngIf='show.now_playing'>NOW PLAYING</span>
+        <span class='upcoming-up-next' *ngIf='show.up_next'>UP NEXT</span>
+      </h2>
+      <h3 class='upcoming-date'><span class='day'>{{daysOfWeek[show.day]}}</span><span style='font-size: 0.75em;color: #000;'><span class='time'>{{show.local_time}}</span></span></h3>
+      <p  class='upcoming-content'>{{show.content}}</p>
+      <!-- <h4 class='upcoming-now-playing' *ngIf='show.now_playing'>NOW PLAYING</h4>
+      <h4 class='upcoming-up-next' *ngIf='show.up_next'>UP NEXT</h4> -->
+    </div>
+  </div>
+</div>
+</div>
+<p class='empty-message' *ngIf='upcomingShows.length == 0 && !isLoading'>We haven't updated our schedule yet. Check back soon!</p>
+<a *ngIf='mode == "home" && upcomingShows.length >= 0' class='schedule-btn' routerLink='/schedule'>
+FULL SCHEDULE</a>
+</div>
+</div>

@@ -1,0 +1,72 @@
+.livestream-container {
+width: 100%;
+position: relative;
+padding-top: 70px;
+}
+
+@media (min-width: 960px) {
+#video_holder {
+  margin-left: 50%;
+  transform: translateX(-480px);
+}
+}
+
+
+@media (max-width: 1200px) {
+  h1.close-livestream-btn {
+    right: 14px;
+    -webkit-text-stroke-color:#fff;
+    -webkit-text-stroke-width:2px;
+  }
+}
+@media (max-width: 990px) {
+  h1 {
+    margin-right: 7px !important;
+  }
+
+  .hkcr-cover {
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+
+  }
+
+}
+
+h1.close-livestream-btn {
+  position: absolute;
+  font-size: 1.777em;
+color: #151515;
+  padding: 7px;
+  border-radius: 4px;
+margin-right: -11px;
+margin-top: 11px;
+right: 12.5%;
+opacity: 0.77;
+transition: 0.2s;
+cursor: pointer;
+z-index:999;
+}
+
+h1.acid-mode-btn {
+  position: absolute;
+  font-size: 1.777em;
+  font-family: 'Orbitron';
+color: #ffdf00;
+  padding: 7px;
+  border-radius: 4px;
+margin-right: -11px;
+margin-top: 51px;
+right: 0px;
+opacity: 0.77;
+transition: 0.2s;
+cursor: pointer;
+z-index:999;
+  animation: hue 2s linear infinite;
+}
+
+h1:hover {
+  opacity: 1;
+}

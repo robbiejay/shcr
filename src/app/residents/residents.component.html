@@ -1,0 +1,16 @@
+<div class="container"  style='position:relative;'>
+              <h1><span class="chinesetext">節目主持</span> RESIDENTS</h1>
+    <div class='row'>
+    <div class='col-6 col-sm-4 col-md-3 col-lg-2' style='padding:3px;' *ngFor='let resident of residents' (click)="goTo(resident.title)">
+      <div class="resident-card">
+        <div class="img-container">
+          <img [src]="resident.image_medium">
+        </div>
+        <h2>{{resident.title}}</h2>
+      </div>
+    </div>
+    </div>
+    <div class="row">
+      <a *ngIf='mode == "home"' class='see-all-residents' routerLink='/residents'>See All Residents</a>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+<div class='slider'>
+  <div class='slider-controls'>
+    <p (click)='prevSlide()'><i class="fas fa-chevron-left"></i></p>
+    <p (click)='nextSlide()'><i class="fas fa-chevron-right"></i></p>
+  </div>
+
+  <div class='slide-container' [@slide]='sliderState'>
+    <div class='slide'>
+      <a *ngIf="highlights[0] !== undefined" target="_blank" [href]='highlights[0].excerpt'>
+
+
+          <div class='slide-image'>
+          <img class='temp-img' *ngIf="!slide1HasLoaded" [src]="highlights[0].low_res_image">
+          <img [ngClass]="{'hidden': !slide1HasLoaded}" (load)='slideImage1HasLoaded()' [src]="highlights[0].featured_image">
+
+          <div class='slide-copy' #copyOne>
+            <h1 *ngIf="highlights[0] !== undefined">{{highlights[0].title}}</h1>
+            <h2 *ngIf="highlights[0] !== undefined">{{highlights[0].content}}</h2>
+            </div>
+
+          </div>
+            <!-- <div class='slide-copy-border' #svgOne>
+          </div> -->
+
+
+
+      </a>
+    </div>
+
+    <div class='slide'>
+      <a *ngIf="highlights[1] !== undefined" target="_blank" [href]='highlights[1].excerpt'>
+
+
+          <div class='slide-image'>
+            <img class='temp-img' *ngIf="!slide2HasLoaded" [src]="highlights[1].low_res_image">
+          <img [ngClass]="{'hidden': !slide2HasLoaded}" (load)='slideImage2HasLoaded()' [src]="highlights[1].featured_image">
+
+
+          <div class='slide-copy'>
+            <h1 *ngIf="highlights[1] !== undefined">{{highlights[1].title}}</h1>
+            <h2 *ngIf="highlights[1] !== undefined">{{highlights[1].content}}</h2>
+          </div>
+
+          </div>
+
+
+
+      </a>
+    </div>
+
+    <div class='slide'>
+      <a *ngIf="highlights[2] !== undefined" target="_blank" [href]='highlights[2].excerpt'>
+
+
+          <div class='slide-image'>
+            <img class='temp-img' *ngIf="!slide3HasLoaded" [src]="highlights[2].low_res_image">
+          <img [ngClass]="{'hidden': !slide3HasLoaded}" (load)='slideImage3HasLoaded()' *ngIf="highlights[2] !== undefined" [src]="highlights[2].featured_image">
+
+
+          <div class='slide-copy'>
+            <h1 *ngIf="highlights[2] !== undefined">{{highlights[2].title}}</h1>
+            <h2 *ngIf="highlights[2] !== undefined">{{highlights[2].content}}</h2>
+          </div>
+
+          </div>
+
+
+      </a>
+    </div>
+
+    <div class='slide'>
+      <a *ngIf="highlights[3] !== undefined" target="_blank" [href]='highlights[3].excerpt'>
+
+
+          <div class='slide-image'>
+            <img class='temp-img' *ngIf="!slide4HasLoaded" [src]="highlights[3].low_res_image">
+          <img [ngClass]="{'hidden': !slide4HasLoaded}" (load)='slideImage4HasLoaded()' *ngIf="highlights[3] !== undefined" [src]="highlights[3].featured_image">
+
+
+          <div class='slide-copy'>
+            <h1 *ngIf="highlights[3] !== undefined">{{highlights[3].title}}</h1>
+            <h2 *ngIf="highlights[3] !== undefined">{{highlights[3].content}}</h2>
+          </div>
+
+          </div>
+
+
+      </a>
+    </div>
+
+    <div class='slide'>
+      <a *ngIf="highlights[4] !== undefined" target="_blank" [href]='highlights[4].excerpt'>
+
+
+          <div class='slide-image'>
+            <img class='temp-img' *ngIf="!slide5HasLoaded" [src]="highlights[4].low_res_image">
+          <img [ngClass]="{'hidden': !slide5HasLoaded}" (load)='slideImage5HasLoaded()' *ngIf="highlights[4] !== undefined" [src]="highlights[4].featured_image">
+
+
+          <div class='slide-copy'>
+            <h1 *ngIf="highlights[4] !== undefined">{{highlights[4].title}}</h1>
+            <h2 *ngIf="highlights[4] !== undefined">{{highlights[4].content}}</h2>
+          </div>
+
+          </div>
+
+
+      </a>
+    </div>
+
+    <div class='slide'>
+      <a *ngIf="highlights[5] !== undefined" target="_blank" [href]='highlights[5].excerpt'>
+
+
+          <div class='slide-image'>
+            <img class='temp-img' *ngIf="!slide6HasLoaded" [src]="highlights[5].low_res_image">
+          <img [ngClass]="{'hidden': !slide6HasLoaded}" (load)='slideImage6HasLoaded()' *ngIf="highlights[5] !== undefined" [src]="highlights[5].featured_image">
+
+
+          <div class='slide-copy'>
+            <h1 *ngIf="highlights[5] !== undefined">{{highlights[5].title}}</h1>
+            <h2 *ngIf="highlights[5] !== undefined">{{highlights[5].content}}</h2>
+          </div>
+
+          </div>
+
+
+      </a>
+    </div>
+
+
+
+
+
+  </div>
+  </div>

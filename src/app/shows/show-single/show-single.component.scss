@@ -1,0 +1,173 @@
+.img-container {
+  width: 100%;
+  height: auto;
+}
+
+.show-img-container {
+  min-height: 420px;
+    overflow: hidden;
+      box-shadow: 0px 0px 24px 1px #cacaca;
+      margin-top: 35px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.temp-img {
+  min-width: 420px;
+  filter: blur(12px);
+
+}
+
+.single-show-content-container {
+  padding-left: 35px;
+}
+
+.back-btn {
+
+  font-size: 4.209em;
+  color: transparent;
+  -webkit-text-stroke-color: #000;
+  display: block;
+  -webkit-text-stroke-width: 1px;
+  position: absolute;
+  top: -35px;
+  cursor: pointer;
+
+}
+
+.back-btn:hover {
+  -webkit-text-stroke-color: #8f8f8f;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+.single-show-title {
+  font-size: 1.777em;
+  margin-top: 35px;
+  margin-bottom: 7px;
+  padding: 0px 35px;
+}
+
+.single-show-airdate {
+  font-size: 0.75em;
+  margin-left: 35px;
+  margin-bottom: 7px;
+  color: #a0a0a0;
+}
+
+
+.single-show-excerpt {
+  line-height: 1.5em;
+  padding: 0px 35px;
+  font-size: 0.75em;
+}
+
+.container {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.listen-now-btn {
+  padding: 7px;
+  padding-top: 9px;
+  margin-top: 7px;
+  margin-bottom: 14px;
+  display:inline-block;
+  margin-left: 35px;
+  border-radius: 7px;
+  transition: 0.2s;
+  background: #eaeaea;
+  cursor: pointer;
+}
+
+.listen-now-btn:hover {
+  box-shadow: -8px -8px 8px 0px rgba(255,255,255,0.4),
+  2px 2px 8px 0px rgba(0,0,0,0.4);
+}
+
+.watch-now-btn {
+  box-shadow: -8px -8px 8px 0px rgba(255,255,255,0.4) inset,
+  2px 2px 8px 0px rgba(0,0,0,0.4) inset;
+  padding: 7px;
+  color: #000;
+  padding-top: 9px;
+  margin-top: 14px;
+  display:inline-block;
+  margin-left: 35px;
+  border-radius: 7px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.watch-now-btn:hover {
+  box-shadow: -8px -8px 8px 0px rgba(255,255,255,0.4),
+  2px 2px 8px 0px rgba(0,0,0,0.4);
+}
+
+.genre-tags {
+  margin-left: 35px;
+}
+
+.genre-tags li:nth-child(1) {
+  background-color: #000;
+  color: #fff;
+
+}
+
+.genre-tags li:nth-child(2) {
+
+
+}
+
+.genre-tags li {
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 4px;
+  font-size: 0.75em;
+  border: 1px solid #000;
+  border-radius: 2px;
+  padding: 4px;
+  margin-bottom: 3px;
+}
+
+
+.related-show-container {
+  cursor: pointer;
+}
+
+.related-show-container:hover {
+
+}
+
+.similar-artists-title {
+  margin-top: 7px;
+  font-size: 1.333em;
+  padding: 4px;
+}
+
+.video-container {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .back-btn {
+    left: 10vw;
+  }
+
+  .show-img-container {
+    min-height: 240px;
+    margin-top: 0px;
+
+          box-shadow: 0px 0px 8px 1px #cacaca;
+
+  }
+
+  .show-img-container {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}

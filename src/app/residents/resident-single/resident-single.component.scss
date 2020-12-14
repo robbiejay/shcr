@@ -1,0 +1,63 @@
+.img-container {
+  width: 100%;
+  height: auto;
+}
+
+.back-btn {
+
+  font-family: "Orbitron";
+  font-size: 4.209em;
+  color: transparent;
+  -webkit-text-stroke-color: #000;
+  display: block;
+  -webkit-text-stroke-width: 1px;
+  position: absolute;
+  top: -75px;
+  cursor: pointer;
+  margin-left: 14px;
+
+}
+
+.back-btn:hover {
+  -webkit-text-stroke-color: #ffdf00;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+h1 {
+  font-size: 1.777em;
+  margin-top: 35px;
+  padding: 14px 35px;
+}
+
+p {
+  line-height: 1.5em;
+  padding: 0px 35px;
+  background: none;
+  font-size: 1em;
+}
+
+.container {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.resident-show-container {
+  cursor: pointer;
+}
+
+.resident-show-title {
+  margin-top: 7px;
+  font-size: 1em;
+  padding: 7px;
+}
+
+.resident-show-airdate {
+  font-family: "Josefin Sans";
+  font-size: 1em;
+  color: #a0a0a0;
+  padding: 7px;
+  margin-bottom: 14px;
+}

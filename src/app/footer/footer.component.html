@@ -1,0 +1,50 @@
+<footer>
+  <!-- <svg style='display: none;'>
+    <filter id='wavy-2'>
+      <feTurbulence x="0" y="0" baseFrequency="0.002"
+      numOctaves="5" seed="2">
+      <animate attributeName='baseFrequency' dur='120s'
+      values='0.002;0.005;0.002' repeatCount='indefinite'></animate>
+      </feTurbulence>
+      <feDisplacementMap in='SourceGraphic' scale='4'></feDisplacementMap>
+      </filter>
+  </svg> -->
+  <div class='row'>
+    <div class="col-12 col-md-2">
+      <div class="image-container">
+          <img src="assets/logo.png">
+      </div>
+    </div>
+    <div class='col-12 col-md-2'>
+      <div class="social-container">
+    <h1>Follow our social</h1>
+    <ul>
+      <a href='https://www.facebook.com/hkcrlive'><li><i class="fab fa-facebook-f"></i></li></a>
+      <a href='https://www.instagram.com/hkcronline'><li><i class="fab fa-instagram"></i></li></a>
+      <a href='https://twitter.com/hkcr_online'><li><i class="fab fa-twitter"></i></li></a>
+    </ul>
+    </div>
+    </div>
+    <div class='col-12 col-md-2'>
+      <div class="social-container">
+        <h1>Find our music</h1>
+        <ul>
+          <a href='https://www.mixcloud.com/HKCR/'><li><i class="fab fa-mixcloud"></i></li></a>
+          <a href='https://soundcloud.com/hkcrlive'><li><i class="fab fa-soundcloud"></i></li></a>
+          <a href='https://www.youtube.com/channel/UCFqCSru3cS79WElDMSh-jcg'><li><i class="fab fa-youtube"></i></li></a>
+        </ul>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <p>Hong Kong Community Radio （簡稱 HKCR）成立於2016年，為植根於灣仔的社區平台及網絡電台，我們由本地不同的創作人、音樂人、藝術家和支持者所組成，以成為一個開放的平台為終旨。<br> Founded in 2016, HKCR (Hong Kong Community Radio) is a community platform and independent radio station based in Wan Chai.</p>
+    </div>
+    <!-- <a href='https://www.facebook.com/hkcrlive'><li><i class="fab fa-facebook-f"></i></li></a>
+    <a href='https://www.youtube.com/channel/UCFqCSru3cS79WElDMSh-jcg'><li><i class="fab fa-youtube"></i></li></a>
+    <a href='https://www.mixcloud.com/HKCR/'><li><i class="fab fa-mixcloud"></i></li></a>
+    <a href='https://www.instagram.com/hkcronline'><li><i class="fab fa-instagram"></i></li></a>
+    <a href='https://twitter.com/hkcr_online'><li><i class="fab fa-twitter"></i></li></a>
+    <a href='https://soundcloud.com/hkcrlive'><li><i class="fab fa-soundcloud"></i></li></a> -->
+
+    </div>
+    <div class="footerblank" *ngIf="this.playerService.isPlayerVisible"></div>
+  </footer>
