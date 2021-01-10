@@ -1,18 +1,18 @@
-<div class='fluid-container' style='background-color: #f4f4f4;position:relative;'>
+<div class='fluid-container latest-container' style='background-color: #f4f4f4;position:relative; margin-top: 70px;'>
     <!-- <div class='blob_1'>&nbsp;</div> -->
 <div class='fluid-container'>
 <div class='row show-header'>
   <div class='col-12 col-sm-6'>
-<h1><span class="chinesetext">最新节目</span> LATEST
+<h1><span class="chinesetext">最新节目</span> <span *ngIf="currentGenre == ''">LATEST</span> <span *ngIf="currentGenre !== ''">{{currentGenre}}<i style='margin-left: 14px; font-size: 0.56em; cursor:pointer;' (click)='closeGenre()' class="close-genre fas fa-times-circle"></i></span>
   <!-- <div class='controls-container'>
     <button class='controls' *ngIf='mode == "home"' (click)='prevShowPage()'><</button>
     <button class='controls' *ngIf='mode == "home"' (click)='nextShowPage()'>></button>
   </div> -->
   </h1>
   </div>
-            <div class='col-12 col-sm-6'>
+            <!-- <div class='col-12 col-sm-6'>
               <p class='genre' *ngIf="currentGenre !== ''"><i style='margin-right: 14px;cursor:pointer;' (click)='closeGenre()' class="fas fa-times-circle"></i><span style='font-family: "Josefin Sans"'>{{currentGenre}}</span></p>
-              </div>
+              </div> -->
     <!-- <div class='col-2'>
       <a routerLink="../archive"><h2 class='archive-button'>ARCHIVE <i class="fas fa-archive"></i></h2></a>
     </div> -->

@@ -111,13 +111,14 @@ export class HeaderComponent implements OnInit {
     if(isPlatformBrowser(this.platformId)) {
       this.nowPlaying = '';
       setInterval(()=> { this.autoplayComingUp() }, 11 * 1000);
-      const videojs_script = this.renderer2.createElement('script')
-      videojs_script.src = 'https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js';
-      this.renderer2.appendChild(this._document.body, videojs_script);
 
-      const http_streaming_script = this.renderer2.createElement('script')
-      http_streaming_script.src = 'https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.min.js';
-      this.renderer2.appendChild(this._document.body, http_streaming_script);
+      // const videojs_script = this.renderer2.createElement('script')
+      // videojs_script.src = 'https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js';
+      // this.renderer2.appendChild(this._document.body, videojs_script);
+
+      // const http_streaming_script = this.renderer2.createElement('script')
+      // http_streaming_script.src = 'https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.min.js';
+      // this.renderer2.appendChild(this._document.body, http_streaming_script);
 
       this.currentDateHK = moment().tz("Asia/Hong_Kong").format('YYYY-MM-DD');
       this.currentDate = moment().local().format('YYYY-MM-DD');
@@ -143,10 +144,10 @@ export class HeaderComponent implements OnInit {
   }
 
   setNavTimer() {
-    console.log('setNavTimer triggered')
+    //console.log('setNavTimer triggered')
   let timer = setTimeout(() => {
       this.navToggleState = 'navVisible';
-      console.log('set timeout triggered');
+      //console.log('set timeout triggered');
     }, 8000);
   }
 

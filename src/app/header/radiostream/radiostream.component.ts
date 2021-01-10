@@ -47,7 +47,7 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
                   this.radio.src([
                     {
                       type: "application/x-mpegURL",
-                      src: "https://hkcr.live/audio/index.m3u8"
+                      src: "http://139.59.103.183/stream/audio/index.m3u8"
                       }
                   ]);
                   this.radio.on('error', ((error) => {

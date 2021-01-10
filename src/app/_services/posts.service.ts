@@ -39,7 +39,7 @@ export class PostsService {
 
 
   // getShowsbyPage(page): Observable<any> {
-  //   let url = 'https://hkcr.live/wp_api/data/shows/shows_1.json';
+  //   let url = 'http://staging.shcrad.io/wp_api/data/shows/shows_1.json';
   //   return this.http.get(
   //     url,
   //     {observe: 'response'}
@@ -59,7 +59,7 @@ export class PostsService {
   }
 
   getShows(page): Observable<any> {
-    let url = 'https://hkcr.live/wp_api/data/shows/shows_' + page + '.json';
+    let url = 'http://staging.shcrad.io/wp_api/data/shows/shows_' + page + '.json';
     return this.http.get(
       url,
       {observe: 'response'},
@@ -68,13 +68,13 @@ export class PostsService {
 
   getSingleShow(filename): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/shows/single/' + filename + '.json',
+      'http://staging.shcrad.io/wp_api/data/shows/single/' + filename + '.json',
       {responseType: 'json'}
     );
   }
 
   getTotalPages(): Observable<any> {
-    let url = 'https://hkcr.live/wp_api/data/shows/total_pages.json';
+    let url = 'http://staging.shcrad.io/wp_api/data/shows/total_pages.json';
     return this.http.get(
       url,
       {observe: 'response'},
@@ -82,7 +82,7 @@ export class PostsService {
   }
 
   getShowsByTag(tagID, page): Observable<any> {
-    let url = 'https://hkcr.live/wp_api/data/shows/genres/' + tagID + '_'+ page + '.json'
+    let url = 'http://staging.shcrad.io/wp_api/data/shows/genres/' + tagID + '_'+ page + '.json'
     return this.http.get(
       url,
       {observe: 'response'},
@@ -90,45 +90,37 @@ export class PostsService {
   }
 
   getTagTotalPages(tagID): Observable<any> {
-    let url = 'https://hkcr.live/wp_api/data/shows/genres/_totals/' + tagID + '.json'
+    let url = 'http://staging.shcrad.io/wp_api/data/shows/genres/_totals/' + tagID + '.json'
     return this.http.get(
       url,
       {observe: 'response'},
     );
   }
 
-  getTag(tag): Observable<any> {
-    let url = 'https://hkcr.live/wp-json/wp/v2/tags/' + tag;
-    return this.http.get(
-      url,
-      {responseType: 'json'}
-    );
-  }
-
   getSchedule(): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/schedule/schedule.json',
+      'http://staging.shcrad.io/wp_api/data/schedule/schedule.json',
       {responseType: 'json'}
     );
   }
 
   getHighlights(): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/highlights/highlight_reel.json',
+      'http://staging.shcrad.io/wp_api/data/highlights/highlight_reel.json',
       {responseType: 'json'}
     );
   }
 
   getResidents(): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/residents/residents.json',
+      'http://staging.shcrad.io/wp_api/data/residents/residents.json',
       {responseType: 'json'}
     );
   }
 
   getSingleResident(filename): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/residents/single/' + filename + '.json',
+      'http://staging.shcrad.io/wp_api/data/residents/single/' + filename + '.json',
       {responseType: 'json'}
     );
   }
@@ -142,42 +134,42 @@ export class PostsService {
 
   getUpcomingShows(): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/upcoming-shows/upcoming_shows.json',
+      'http://staging.shcrad.io/wp_api/data/upcoming-shows/upcoming_shows.json',
       {responseType: 'json'}
     )
   }
 
   getSingleUpcoming(filename): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/upcoming-shows/single/' + filename + '.json',
+      'http://staging.shcrad.io/wp_api/data/upcoming-shows/single/' + filename + '.json',
       {responseType: 'json'}
     )
   }
 
   getPosts(): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/blog/blog.json',
+      'http://staging.shcrad.io/wp_api/data/blog/blog.json',
       {responseType: 'json'}
     );
   }
 
   getSinglePost(filename): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/blog/single/' + filename + '.json',
+      'http://staging.shcrad.io/wp_api/data/blog/single/' + filename + '.json',
       {responseType: 'json'}
     );
   }
 
   getLatestShows(): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/shows/shows_1.json',
+      'http://staging.shcrad.io/wp_api/data/shows/shows_1.json',
       {responseType: 'json'}
     );
   }
 
   getLatestUpdatedTimestamp(): Observable<any> {
     return this.http.get(
-      'https://hkcr.live/wp_api/data/timestamp.json',
+      'http://staging.shcrad.io/wp_api/data/timestamp.json',
       {responseType: 'json'}
     );
   }

@@ -21,6 +21,9 @@ export class ShowSingleComponent implements OnInit {
   tags = []
   isLoading : boolean;
   youtubeVideo = '';
+  bilibiliVideo = '';
+  neteaseTrack = '';
+  soundcloudTrack = '';
   videoActive : boolean;
   showImageHasLoaded : boolean;
 
@@ -73,8 +76,11 @@ export class ShowSingleComponent implements OnInit {
         let date = titleArr.pop();
         let title = titleArr.join();
 
-        let content = this.splitShowYoutube(this.helpersService.HtmlEncode(data.content))
-
+        let contentY = this.splitShowYoutube(this.helpersService.HtmlEncode(data.content))
+        let contentB = this.splitShowBiliBili(this.helpersService.HtmlEncode(contentY))
+        let contentN = this.splitShowNetease(this.helpersService.HtmlEncode(contentB))
+        let contentS = this.splitShowSoundcloud(this.helpersService.HtmlEncode(contentN))
+        let content = contentS;
         let showData = {
           title: title,
           content: content,
@@ -112,8 +118,52 @@ export class ShowSingleComponent implements OnInit {
     return contentNewArr.join('');
   }
 
+  splitShowBiliBili(content) {
+    let contentArr = content.split('[bilibili]');
+    let contentNewArr = [];
+    contentArr.forEach((chunk, index) => {
+      if (index !== 0) {
+        let chunkArr = chunk.split('[/bilibili]');
+        this.bilibiliVideo = chunkArr[0];
+        chunk = chunkArr[1];
+      }
+        contentNewArr.push(chunk);
+    })
+    return contentNewArr.join('');
+  }
+
+  splitShowNetease(content) {
+    let contentArr = content.split('[netease]');
+    let contentNewArr = [];
+    contentArr.forEach((chunk, index) => {
+      if (index !== 0) {
+        let chunkArr = chunk.split('[/netease]');
+        this.neteaseTrack = chunkArr[0];
+        chunk = chunkArr[1];
+      }
+        contentNewArr.push(chunk);
+    })
+    return contentNewArr.join('');
+  }
+
+  splitShowSoundcloud(content) {
+    let contentArr = content.split('[soundcloud]');
+    let contentNewArr = [];
+    contentArr.forEach((chunk, index) => {
+      if (index !== 0) {
+        let chunkArr = chunk.split('[/soundcloud]');
+        this.soundcloudTrack = chunkArr[0];
+        chunk = chunkArr[1];
+      }
+        contentNewArr.push(chunk);
+    })
+    return contentNewArr.join('');
+  }
+
   listenShow(show){
+    if(show !== "") {
     this.playerService.playShow(show);
+    }
   }
 
   watchShow() {

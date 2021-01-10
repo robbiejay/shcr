@@ -15,7 +15,7 @@
               <img [ngClass]="{'hidden': !showImageHasLoaded}" (load)='imageHasLoaded()' [src]="show.featured_image">
             </div>
             <div *ngIf='videoActive' class="video-container">
-              <iframe style='margin-top: 35px;'
+              <iframe *ngIf='youtubeVideo !== ""' style='margin-top: 35px;'
               width="100%"
               height="320"
               [src]="youtubeVideo | safe"
@@ -23,6 +23,15 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
             </iframe>
+
+            <iframe *ngIf='bilibiliVideo !== ""' style='margin-top: 35px;'
+            width="100%"
+            height="320"
+            [src]="bilibiliVideo | safe"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
             </div>
             </div>
           </div>
@@ -34,8 +43,10 @@
               <li>Tags:</li>
               <li *ngFor='let tag of show.tags; let i = index;' (click)='sortByTag(tag)'>{{tag}}</li>
             </ul>
-            <span role='button'  (click)='listenShow(show.excerpt)' class='listen-now-btn'><i class="fas fa-play"></i> &nbsp;Listen Now</span>
-            <span role='button' *ngIf='youtubeVideo !== ""' (click)='watchShow()' class='listen-now-btn'><i class="fas fa-tv"></i> &nbsp;Watch Now</span>
+            <!-- <span role='button'  (click)='listenShow(show.excerpt)' class='listen-now-btn'><i class="fas fa-play"></i> &nbsp;Listen Now</span> -->
+            <span role='button' *ngIf='youtubeVideo !== "" || bilibiliVideo !== ""' (click)='watchShow()' class='listen-now-btn'><i class="fas fa-tv"></i> &nbsp;Watch Now</span>
+            <iframe *ngIf='soundcloudTrack !== ""' style='margin-left: 5%;margin-bottom: 14px;' width="90%" height="166" scrolling="no" frameborder="no" allow="autoplay" [src]="soundcloudTrack | safe"></iframe>
+            <iframe *ngIf='neteaseTrack !== ""' style='margin-left: 5%;margin-bottom: 14px;' width="90%" height="106" scrolling="no" frameborder="no" allow="autoplay" [src]="neteaseTrack | safe"></iframe>
             <p class='single-show-excerpt' [innerHtml]="show.content"></p>
           </div>
         </div>

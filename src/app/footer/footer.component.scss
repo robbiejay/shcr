@@ -58,6 +58,14 @@ li {
   width: 33.3333%;
   float: left;
   font-size: 1.333em;
+  margin-top: 14px;
+}
+
+a {
+  color: transparent;
+  font-size: 1.333em;
+  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-width: 1px;
 }
 
 .image-container {

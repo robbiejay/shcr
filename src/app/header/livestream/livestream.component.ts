@@ -82,7 +82,6 @@ export class LivestreamComponent implements OnInit, OnDestroy {
                     volumePanel: {inline: false, show: true}
                   },
                   "width": this.livestreamPlayerWidth - 10,
-                  "poster":"https://admin.hkcr.live/wp-content/uploads/2020/07/hkcr-meta.png",
                   hls: {
                     withCredentials: true
                   },
@@ -99,7 +98,7 @@ export class LivestreamComponent implements OnInit, OnDestroy {
                   this.video.src([
                     {
                       type: "application/x-mpegURL",
-                      src: "https://hkcr.live/hls/test.m3u8"
+                      src: "http://139.59.103.183/stream/hls/test.m3u8"
                       }
                   ]);
                   this.video.play();

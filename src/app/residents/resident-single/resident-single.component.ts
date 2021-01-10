@@ -51,7 +51,7 @@ export class ResidentSingleComponent implements OnInit {
         if(data._embedded['wp:featuredmedia'] == undefined) {
           featured_img = "assets/default_show.png";
         } else {
-          featured_img = data._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url;
+          featured_img = data._embedded['wp:featuredmedia'][0].source_url;
         }
 
 
