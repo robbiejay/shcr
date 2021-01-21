@@ -78,6 +78,10 @@ export class ResidentSingleComponent implements OnInit {
   }
 
   getResidentShows(resident) {
+    if (resident.charAt(0) == '_') {
+     resident = resident.slice(1, resident.length);
+    }
+    resident = resident.replace(/_/g, '-')
     console.log(resident);
     this.postsService.getShowsByTag(resident, 1).subscribe(
       data => {

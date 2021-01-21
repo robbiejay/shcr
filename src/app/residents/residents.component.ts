@@ -70,7 +70,11 @@ this.getResidents();
   goTo(location) {
                 if(isPlatformBrowser(this.platformId)) {
                   console.log(location.replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase());
-    this.router.navigate(['residents/' + location.replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase()]);
+                  let urlExtension = location.replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase();
+                  if (urlExtension.charAt(0) == '-') {
+                   urlExtension = urlExtension.slice(1, urlExtension.length);
+                  }
+    this.router.navigate(['residents/' + urlExtension]);
   }
   }
 

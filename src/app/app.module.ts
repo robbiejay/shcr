@@ -47,6 +47,7 @@ import { PlayerComponent } from './player/player.component';
 import { ResidentsComponent } from './residents/residents.component';
 import { ResidentSingleComponent } from './residents/resident-single/resident-single.component';
 import { LatestComponent } from './home/latest/latest.component';
+import { LandingComponent } from './home/landing/landing.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { LatestComponent } from './home/latest/latest.component';
     ContactComponent,
     Page404Component,
     AdspaceComponent,
-    LatestComponent
+    LatestComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
