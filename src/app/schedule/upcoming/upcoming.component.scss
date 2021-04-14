@@ -1,5 +1,4 @@
 .container {
-  padding-top: 26px;
   padding-bottom: 35px;
 }
 
@@ -20,10 +19,32 @@ background: linear-gradient(315deg, rgba(216,216,216,1) 0%, rgba(246,246,246,1) 
   box-shadow: -7px -7px 35px 14px rgba(255,255,255,1),
   7px 7px 35px 14px rgba(0,0,0,0.6);
 
-
 }
 
+.filter-card button {
+  cursor: pointer;
+  width: 100%;
+}
 
+.filter-card button:hover {
+  background: #fff;
+}
+
+.filter-card button:focus {
+  outline: none;
+}
+
+.filter-card button.filter-active {
+  background: #00f;
+  color: #fff;
+}
+
+.filter-card .col-4 {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Noto Sans SC", sans-serif;
+  font-weight: 400;
+}
 
 .upcoming-card {
 border-bottom: 1px dotted #eaeaea;
@@ -33,6 +54,10 @@ padding: 7px 14px;
 transition: 0.2s;
 cursor: pointer;
 position: relative;
+border-radius: 14px;
+border-top: 1px solid #0f0;
+border-right: 1px solid #0f0;
+background: linear-gradient(135deg, rgba(233,233,233,0.2) 0%, rgba(240,240,240,0.2) 60%, rgba(255,255,255,0.2) 100%);
 }
 
 .upcoming-content {
@@ -46,9 +71,9 @@ position: relative;
 .upcoming-card:hover {
 // background-color: #000;
 // color: #fff;
-border-radius: 7px;
-box-shadow: -12px -12px 12px 0px rgba(255,255,255,0.4) inset,
-8px 8px 8px 0px rgba(0,0,0,0.4) inset;
+// border-radius: 7px;
+// box-shadow: -12px -12px 12px 0px rgba(255,255,255,0.4) inset,
+// 8px 8px 8px 0px rgba(0,0,0,0.4) inset;
 }
 
 // .upcoming-card:hover .day {
@@ -81,7 +106,7 @@ box-shadow: -12px -12px 12px 0px rgba(255,255,255,0.4) inset,
 
 .upcoming-img-container img {
   width: 100%;
-  border-radius: 2px;
+  border-radius: 50%;
 }
 
 h1 {
@@ -94,17 +119,31 @@ h1 {
   margin-left: 14px;
 }
 
-
+.filter-btn {
+  border: 1px solid #fff;
+  font-size: 0.75em;
+  margin-top: 7px;
+  padding: 7px 0px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.6);
+  width: 100%;
+}
 
 .upcoming-title {
   font-family: "Exo 2", sans-serif;
   padding-top: 4px;
+  margin-bottom: 7px;
+}
+
+.upcoming-category {
+  font-size: 0.75em;
+  color: #353535;
   margin-bottom: 14px;
 }
 
 .upcoming-date {
   font-family: "Exo 2", sans-serif;
-  font-size: 0.75em;
+  font-size: 1em;
   margin-top: 7px;
   color: #000;
 }
@@ -161,6 +200,11 @@ h1 {
 }
 
 @media only screen and ( max-width : 550px ) {
+
+.upcoming-container {
+  width: 85%;
+  margin-left: 15%;
+}
 
   .upcoming-now-playing {
 left: -40px;

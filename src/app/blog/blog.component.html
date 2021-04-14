@@ -1,8 +1,13 @@
-<div class="fluid-container" style='background-color: #f4f4f4;position:relative;padding: 35px 0px;'>
+<div class="fluid-container" style='padding: 35px 0px;'>
 <div class='container'>
+  <div class="row">
+    <div class="col-3">
+      <p>&nbsp;</p>
+    </div>
+    <div class="col-9">
         <h1 class='heading'> <span class="chinesetext">最新文章</span> EDITORIAL</h1>
   <div class="row" style='min-height: 100vh;'>
-    <div class='col-12 col-md-6 col-lg-4' *ngFor='let post of posts'>
+    <div class='col-12 col-md-6' *ngFor='let post of posts'>
       <div class="post-card" (click)="goTo(post.filename)">
         <div class='img-container'>
         <img [src]="post.image_large">
@@ -12,5 +17,7 @@
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 </div>

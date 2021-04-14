@@ -1,7 +1,27 @@
-<div class="fluid-container" style='background-color: #e0e0e0;position:relative;padding:70px 0px;'>
+<div class="fluid-container" style='padding:88px 0px;'>
 <div class="container upcoming-container">
   <div class='inner-horizontal-container'>
-  <h1><span class="chinesetext">節目表</span> UPCOMING</h1>
+  <!-- <h1><span class="chinesetext">節目表</span> UPCOMING</h1> -->
+  <div class="upcoming-card filter-card">
+    <div class="row">
+      <h1 style='font-size:0.75em; font-weight: 400;'>筛选 / Filter By :</h1>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <button class='filter-btn' [class.filter-active]="currentCategory == '表演/Performance'" (click)='filterBy("表演/Performance")' type="button" name="button">表演<br>Performance</button>
+      </div>
+      <div class="col-4">
+        <button class='filter-btn' [class.filter-active]="currentCategory == '工作坊/Workshop'" (click)='filterBy("工作坊/Workshop")' type="button" name="button">工作坊<br>Workshop</button>
+      </div>
+      <div class="col-4">
+        <button class='filter-btn' [class.filter-active]="currentCategory == '论坛/Panel Talk'" (click)='filterBy("论坛/Panel Talk")' type="button" name="button">论坛<br>Panel Talk</button>
+      </div>
+    </div>
+  </div>
+  <div class='row' *ngIf='isLoading'>
+    <div class='col-12' style='text-align: center;margin-top: 32px;'><img src='assets/loading.gif'>
+    </div>
+  </div>
   <div class='upcoming-card' *ngFor='let show of upcomingShows; let i = index;' (click)="goTo(show.filename)">
   <div class="row">
     <div class="col-4" style='padding: 0px;'>
@@ -12,11 +32,15 @@
     </div>
     <div class="col-8">
       <h2 class='upcoming-title'>{{show.title}} &nbsp;
-        <span class='upcoming-now-playing' *ngIf='show.now_playing'>NOW PLAYING</span>
-        <span class='upcoming-up-next' *ngIf='show.up_next'>UP NEXT</span>
+        <!-- <span class='upcoming-now-playing' *ngIf='show.now_playing'>NOW PLAYING</span>
+        <span class='upcoming-up-next' *ngIf='show.up_next'>UP NEXT</span> -->
       </h2>
-      <h3 class='upcoming-date'><span class='day'>{{daysOfWeek[show.day]}}</span><span style='font-size: 0.75em;color: #000;'><span class='time'>{{show.local_time}}</span></span></h3>
-      <p  class='upcoming-content'>{{show.content}}</p>
+      <h3 class='upcoming-category'>{{show.category}}</h3>
+      <h3 class='upcoming-date'><span style='font-size: 0.75em;color: #000;'><span class='time'>{{show.local_time}}</span></span><span class='day'>{{daysOfWeek[show.day]}}</span></h3>
+      <h3 class='upcoming-category'><span style='letter-spacing: 1px;margin-top: 14px; display:block;'>{{show.dateDisplay}}</span></h3>
+
+
+
       <!-- <h4 class='upcoming-now-playing' *ngIf='show.now_playing'>NOW PLAYING</h4>
       <h4 class='upcoming-up-next' *ngIf='show.up_next'>UP NEXT</h4> -->
     </div>
@@ -24,7 +48,5 @@
 </div>
 </div>
 <p class='empty-message' *ngIf='upcomingShows.length == 0 && !isLoading'>We haven't updated our schedule yet. Check back soon!</p>
-<a *ngIf='mode == "home" && upcomingShows.length >= 0' class='schedule-btn' routerLink='/schedule'>
-FULL SCHEDULE</a>
 </div>
 </div>

@@ -55,9 +55,17 @@ p {
 }
 
 .resident-show-airdate {
-  font-family: "Josefin Sans";
+  font-family: "Exo 2", sans-serif;
   font-size: 1em;
   color: #a0a0a0;
   padding: 7px;
   margin-bottom: 14px;
+}
+
+@media (max-width: 768px) {
+
+  .fluid-container {
+    width: calc(100% - 64px);
+    margin-left: 64px;
+  }
 }

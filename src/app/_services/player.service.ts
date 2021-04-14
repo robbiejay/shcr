@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subject, Observable, Subscription, of } from 'rxjs';
+import { Subject, Observable, Subscription} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { map, mapTo } from 'rxjs/operators';
 
 
 @Injectable({
@@ -33,9 +31,6 @@ export class PlayerService {
 
     }
 
-    mixcloudLoaded() {
-
-    }
 
     closePlayer() {
       this.playerVisibilityChange.next(false);
@@ -45,12 +40,11 @@ export class PlayerService {
       this.playerVisibilityChange.next(!this.isPlayerVisible);
     }
 
-    checkStream(): Observable<any> {
-      let url = 'https://hkcr.live/hls/test.m3u8';
+    getGeolocation(): Observable<any> {
       return this.http.get(
-        url,
-        {responseType: 'text',
-        observe:'response'},
-      )
+        'https://api.ipstack.com/134.201.250.155?access_key=0b7d3fba770c0d0a82b320db05b06dcf',
+        {responseType: 'json'}
+      );
     }
+
 }

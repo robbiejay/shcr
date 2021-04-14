@@ -52,7 +52,11 @@ export class BlogSingleComponent implements OnInit {
           if(data._embedded['wp:featuredmedia'] == undefined) {
             featured_img = "assets/default_show.png";
           } else {
+            if(data._embedded['wp:featuredmedia'][0].media_details == undefined ) {
+              featured_img = "assets/meta-shcr.png";
+            } else {
             featured_img = data._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url;
+          }
           }
 
           let dateArr = this.helpersService.HtmlEncode(data.date).split('T');

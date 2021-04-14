@@ -1,14 +1,21 @@
 .chinesetext {
-  //font-family: 'GBK'!important;
-  color: black;
-  -webkit-text-stroke-width: 0px;
+//  font-family: 'GBK'!important;
+color: #0000;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #2d3941;
 }
 
-.heading {
-  font-size: 1.777em;
-  color: #8f8f8f;
-  margin-top: 70px;
-  margin-bottom: 35px;
+
+h1 {
+  font-size: 1.333em;
+  padding-top: 70px;
+  padding-bottom: 7px;
+  margin-left: 0px;
+  font-family: "Exo 2", monospace;
+  width: 240px;
+  font-weight: 900;
+  color:#2d3941;
+
 }
 
 .img-container {
@@ -40,10 +47,18 @@
   background: rgba(255,255,255,0.75);
   margin-bottom: 25px;
   border-radius: 14px;
-  overflow: hidden;
-  box-shadow: -8px -8px 8px 0px rgba(255,255,255,0.4) inset,
-  2px 2px 8px 0px rgba(0,0,0,0.4) inset;
+  border-radius: 14px;
+  border-bottom-left-radius: 0px;
+  border-top: 1px solid #0f0;
+  transition: 0.5s;
+  border-right: 1px solid #0f0;
+  //background-color: rgb(233,233,233);
+  background: linear-gradient(135deg, rgba(233,233,233,0.2) 0%, rgba(240,240,240,0.2) 60%, rgba(255,255,255,0.2) 100%);
   min-height: 22rem;
+}
+
+.post-card:hover {
+  background-color: #fff !important;
 }
 
 @media (max-width: 1200px) {

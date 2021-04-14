@@ -1,22 +1,22 @@
-<div class='slider'>
+<div class='slider' [@sliderVisibility]='sliderShowState'>
   <div class='slider-controls'>
     <p (click)='prevSlide()'><i class="fas fa-chevron-left"></i></p>
     <p (click)='nextSlide()'><i class="fas fa-chevron-right"></i></p>
   </div>
 
   <div class='slide-container' [@slide]='sliderState'>
-    <div class='slide'>
+    <div class='slide' [@slideOne]='slideOneState'>
       <a *ngIf="highlights[0] !== undefined" target="_blank" [href]='highlights[0].excerpt'>
 
 
           <div class='slide-image'>
-          <img class='temp-img' *ngIf="!slide1HasLoaded" [src]="highlights[0].low_res_image">
+          <img class='temp-img' (load)='showSlider()' *ngIf="!slide1HasLoaded" [src]="highlights[0].low_res_image">
           <img [ngClass]="{'hidden': !slide1HasLoaded}" (load)='slideImage1HasLoaded()' [src]="highlights[0].featured_image">
 
           <div class='slide-copy' #copyOne>
             <h1 *ngIf="highlights[0] !== undefined">{{highlights[0].title}}</h1>
             <h2 *ngIf="highlights[0] !== undefined">{{highlights[0].content}}</h2>
-            </div>
+          </div>
 
           </div>
             <!-- <div class='slide-copy-border' #svgOne>
@@ -27,7 +27,7 @@
       </a>
     </div>
 
-    <div class='slide'>
+    <div class='slide' [@slideTwo]='slideTwoState'>
       <a *ngIf="highlights[1] !== undefined" target="_blank" [href]='highlights[1].excerpt'>
 
 
@@ -48,7 +48,7 @@
       </a>
     </div>
 
-    <div class='slide'>
+    <div class='slide' [@slideThree]='slideThreeState'>
       <a *ngIf="highlights[2] !== undefined" target="_blank" [href]='highlights[2].excerpt'>
 
 
@@ -68,7 +68,7 @@
       </a>
     </div>
 
-    <div class='slide'>
+    <!-- <div class='slide'>
       <a *ngIf="highlights[3] !== undefined" target="_blank" [href]='highlights[3].excerpt'>
 
 
@@ -126,7 +126,7 @@
 
 
       </a>
-    </div>
+    </div> -->
 
 
 

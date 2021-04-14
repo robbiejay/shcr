@@ -22,7 +22,7 @@
 }
 
 .single-show-content-container {
-  padding-left: 35px;
+  padding-left: 0px;
 }
 
 .back-btn {
@@ -49,8 +49,10 @@
 .single-show-title {
   font-size: 1.777em;
   margin-top: 35px;
-  margin-bottom: 7px;
+  margin-bottom: 14px;
   padding: 0px 35px;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 700;
 }
 
 .single-show-airdate {
@@ -82,8 +84,12 @@
   margin-left: 35px;
   border-radius: 7px;
   transition: 0.2s;
-  background: #eaeaea;
+  background: #00f;
+  color: #fff;
+  border: 2px solid #fff;
   cursor: pointer;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 700;
 }
 
 .listen-now-btn:hover {
@@ -91,11 +97,15 @@
   2px 2px 8px 0px rgba(0,0,0,0.4);
 }
 
+.bilibili-player-video-pause-panel-container-mini-screen-title {
+  font-family: "Exo 2", sans-serif;
+}
+
 .watch-now-btn {
   box-shadow: -8px -8px 8px 0px rgba(255,255,255,0.4),
   2px 2px 8px 0px rgba(0,0,0,0.4);
   padding: 7px;
-  color: #000;
+  color: #fff;
   padding-top: 9px;
   margin-top: 14px;
   display:inline-block;
@@ -103,6 +113,8 @@
   border-radius: 7px;
   transition: 0.2s;
   cursor: pointer;
+  font-family: "Exo 2", sans-serif;
+  background: #00f;
 }
 .watch-now-btn:hover {
   box-shadow: -8px -8px 8px 0px rgba(255,255,255,0.4),
@@ -154,7 +166,19 @@
   width: 100%;
 }
 
+.chinese-text {
+  font-weight: 700 !important;
+  font-family: 'Noto Sans SC', sans-serif !important;
+  letter-spacing: 0px;
+}
+
 @media (max-width: 768px) {
+
+  .fluid-container {
+    width: calc(100% - 64px);
+    margin-left: 64px;
+  }
+
   .back-btn {
     left: 10vw;
   }

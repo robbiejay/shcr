@@ -22,7 +22,7 @@ color: #0000;
 .resident-card {
   padding: 21px 35px;
   margin: 0px;
-  background-color: #f7f7f7;
+  background-color: rgba(255,255,255,0.7);
   margin-bottom: 0px;
   min-height: 14rem;
   cursor: pointer;
@@ -50,7 +50,7 @@ margin: auto;
   transition: 0.2s;
   border-radius: 4px;
   max-width: 320px;
-  font-family: "Exo 2";
+    font-family: "Noto Sans SC", sans-serif;
   box-shadow: -8px -8px 8px 0px rgba(255,255,255,0.4),
   2px 2px 8px 0px rgba(0,0,0,0.4);
   background-color: rgb(233,233,233);
@@ -91,7 +91,7 @@ h1 {
   padding-top: 70px;
   padding-bottom: 7px;
   margin-left: 0px;
-  font-family: "Exo 2", monospace;
+  font-family: 'Noto Sans SC', sans-serif;
   width: 240px;
   font-weight: 900;
   color:#2d3941;
@@ -102,7 +102,7 @@ h2 {
   padding-top: 14px;
   padding-bottom: 0px;
   font-size: 1em;
-  font-family: 'Josefin Sans';
+  font-family: 'Noto Sans SC', sans-serif;
   text-align: center;
 }
 
@@ -120,6 +120,9 @@ h2 {
 }
 
 @media (max-width: 768px) {
+
+ h1 { padding-top: 77px;}
+
   h2 {
     font-size: 1em;
 

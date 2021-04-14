@@ -38,13 +38,13 @@
 
           <div class="col-12 col-md-6 single-show-content-container">
             <h1 class='single-show-title'>{{show.title}}</h1>
-            <h2 class='single-show-airdate'>AIRDATE : {{show.date}}</h2>
+            <!-- <h2 class='single-show-airdate'>AIRDATE : {{show.date}}</h2> -->
             <ul class='genre-tags'>
-              <li>Tags:</li>
+              <li>标题 / Tags:</li>
               <li *ngFor='let tag of show.tags; let i = index;' (click)='sortByTag(tag)'>{{tag}}</li>
             </ul>
             <!-- <span role='button'  (click)='listenShow(show.excerpt)' class='listen-now-btn'><i class="fas fa-play"></i> &nbsp;Listen Now</span> -->
-            <span role='button' *ngIf='youtubeVideo !== "" || bilibiliVideo !== ""' (click)='watchShow()' class='listen-now-btn'><i class="fas fa-tv"></i> &nbsp;Watch Now</span>
+            <span role='button' *ngIf='youtubeVideo !== "" || bilibiliVideo !== ""' (click)='watchShow()' class='listen-now-btn'><i class="fas fa-tv"></i> &nbsp;<span class='chinese-text'>收看节目</span> / Watch Now</span>
             <iframe *ngIf='soundcloudTrack !== ""' style='margin-left: 5%;margin-bottom: 14px;' width="90%" height="166" scrolling="no" frameborder="no" allow="autoplay" [src]="soundcloudTrack | safe"></iframe>
             <iframe *ngIf='neteaseTrack !== ""' style='margin-left: 5%;margin-bottom: 14px;' width="90%" height="106" scrolling="no" frameborder="no" allow="autoplay" [src]="neteaseTrack | safe"></iframe>
             <p class='single-show-excerpt' [innerHtml]="show.content"></p>
@@ -55,7 +55,7 @@
     <br>
     <hr>
     <div class="row">
-      <h1 class='single-show-title' style='padding: 0px;margin-left: 14px; margin-bottom: 14px;'>Similar Shows</h1>
+      <h1 class='single-show-title' style='padding: 0px;margin-left: 14px; margin-bottom: 14px;'>相似节目 / Similar Shows</h1>
     </div>
     <div class="row">
       <div class="col-6 col-sm-4 col-md-3" *ngFor="let show of relatedShows">

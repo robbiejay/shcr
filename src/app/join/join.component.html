@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-2 col-sm-12">
+    &nbsp;
+  </div>
+  <div class="col-10 col-sm-12">
+<div class="form-container" *ngIf='!formHasBeenSent'>
+  <h1><span class='chinese-text'>加入</span>SHCR / Join SHCR</h1>
+  <form [formGroup]='form' (submit)="onFormSubmit()">
+  <div class="form-group">
+    <label for="name"><span class='chinese-text'>姓名</span> / Name</label>
+    <input formControlName='name' name="name" type='text'/>
+  </div>
+  <div class="form-group">
+    <label for="role"><span class='chinese-text'>你想在SHCR的平台上做什么？</span> / What would you like to do at SHCR?</label>
+
+    <div class="radio-container"><input formControlName='role' type="radio" name="role" value="Radio Host"/><p><span class='chinese-text'>节目主持（如果你在上海的话）</span>/ Radio Host</p></div>
+    <div class="radio-container"><input formControlName='role' type="radio" name="role" value="Visual Artist"/><p><span class='chinese-text'>视觉艺术</span> / Visual Artist</p></div>
+    <div class="radio-container"><input formControlName='role' type="radio" name="role" value="Network Engineer"/><p><span class='chinese-text'>网络技术</span> / Network Engineer</p></div>
+    <div class="radio-container"><input formControlName='role' type="radio" name="role" value="Admin"/><p><span class='chinese-text'>管理员</span> / Admin</p></div>
+  </div>
+  <div class="form-group">
+    <label for="link"><span class='chinese-text'>你的音乐/视觉作品链接</span> / Share some links of your work</label>
+    <textarea formControlName='link' name="link" rows="4"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="bio"><span class='chinese-text'>一个简短的自我介绍（可选</span>）/ Enter a short bio (Optional)</label>
+    <textarea formControlName='bio' name="bio" rows="4"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="frequency"><span class='chinese-text'>参与频率</span> / Frequency</label>
+    <div class="radio-container"><input formControlName='frequency' type="radio" name="frequency" value="Weekly"/><p><span class='chinese-text'>每周</span> / Weekly</p></div>
+    <div class="radio-container"><input formControlName='frequency' type="radio" name="frequency" value="Monthly"/><p><span class='chinese-text'>每月</span> / Monthly</p></div>
+    <div class="radio-container"><input formControlName='frequency' type="radio" name="frequency" value="Bimonthly"/><p><span class='chinese-text'>两个月一次</span> / Bimonthly</p></div>
+  </div>
+  <div class="form-group">
+    <label for="email"><span class='chinese-text'>你的</span>Email</label>
+    <input formControlName='email' type="text" name="email"/>
+  </div>
+  <div class="form-group">
+    <label for="wechat"><span class='chinese-text'>你的微信ID</span> / WeChat ID</label>
+    <input formControlName='wechat' type="text" name="wechat"/>
+  </div>
+  <div class="form-group">
+    <button type="submit" name="submit"><span class='chinese-text'>发送</span> / Submit</button>
+  </div>
+  </form>
+</div>
+
+<div class="form-container form-confirmation" *ngIf='formHasBeenSent'>
+<h1><i class="fas fa-check-circle"></i></h1>
+<h1>Thanks for your submission!</h1>
+</div>
+</div>
+  </div>

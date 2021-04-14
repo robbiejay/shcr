@@ -1,4 +1,11 @@
 <div class="container"  style='position:relative;'>
+  <div class="row">
+    <div class="col-3">
+
+    </div>
+    <div class="col-9">
+
+
               <h1><span class="chinesetext">節目主持</span> RESIDENTS</h1>
     <div class='row'>
     <div class='col-6 col-sm-4 col-md-3 col-lg-2' style='padding:3px;' *ngFor='let resident of residents' (click)="goTo(resident.title)">
@@ -13,4 +20,6 @@
     <div class="row">
       <a *ngIf='mode == "home"' class='see-all-residents' routerLink='/residents'>See All Residents</a>
     </div>
+    </div>
+        </div>
 </div>

@@ -1,5 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-header></app-header>
+<div class="bg-fixed">
+  <div class="waveform">
+  </div>
+</div>
+<div class="waveform">
+</div>
+<div class="splash-nav-container">
+  <div class="player-control-bar">
+    <a routerLink="/shows" class='splash-nav-link'><div class='splash-nav-link-inner back-button'><span class='icon-container'><i class="fas fa-step-backward"></i></span><p><span class='chinese-text'>档案</span><br><span class='english-text'>ARCHIVE</span></p></div></a>
+    <a routerLink="/blog" class='splash-nav-link'><div class='splash-nav-link-inner pause-button'><span class='icon-container'><i class="fas fa-pause"></i></span><p><span class='chinese-text'>博客</span><br><span class='english-text'>BLOG</span></p></div></a>
+    <a href="https://live.bilibili.com/21548515" target='_blank' class='splash-nav-link'><div class='splash-nav-link-inner play-button'><span class='icon-container'><i class="fas fa-play"></i></span><p><span class='chinese-text'>直播</span><br><span class='english-text'>LIVE</span></p></div></a>
+    <a routerLink="/schedule" class='splash-nav-link'><div class='splash-nav-link-inner next-button'><span class='icon-container'><i class="fas fa-step-forward"></i></span><p><span class='chinese-text'>接下节目</span><br><span class='english-text'>UP NEXT</span></p></div></a>
+    <a routerLink="/residents" class='splash-nav-link'><div class='splash-nav-link-inner next-button'><span class='icon-container'><i class="fas fa-users"></i></span><p><span class='chinese-text'>節目主持</span><br><span class='english-text'>RESIDENTS</span></p></div></a>
+    <a routerLink="/join" class='splash-nav-link'><div class='splash-nav-link-inner next-button'><span class='icon-container'><i class="fas fa-envelope-open-text"></i></span><p><span class='chinese-text'>加入</span><br><span class='english-text'>JOIN</span></p></div></a>
+  </div>
+</div>
 <!-- <div class='stream-container'>
 <app-livestream *ngIf='this.playerService.livestreamActive == true'></app-livestream>
 </div> -->
@@ -13,5 +29,5 @@
     type: 'video/mp4' }]}">
   </app-livestream> -->
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer [showHeader]='showHeader'></app-footer>
 <app-player></app-player>

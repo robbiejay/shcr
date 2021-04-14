@@ -11,10 +11,23 @@ z-index: 1;
 
 }
 
+footer.blank-footer {
+  background: transparent;
+}
+
+footer.blank-footer img, footer.blank-footer i {
+  opacity: 1;
+  -webkit-filter: drop-shadow(1px 1px 20px #fff)
+                drop-shadow(-1px -1px 20px #fff) brightness(1) grayscale(0.5);
+  filter: drop-shadow(1px 1px 20px #fff)
+        drop-shadow(-1px -1px 20px #fff)brightness(2) grayscale(1);
+}
+
+
 .social-bar {
   float: right;
 }
-.social-bar img {
+.social-bar img, .social-bar i {
 width: 25px;
 vertical-align: middle;
 filter: grayscale(1);
@@ -22,9 +35,11 @@ margin-left: 14px;
 margin-top: 24px;
 opacity: 0.4;
 transition: 0.2s;
+color: #fff;
+font-size: 1.333em;
 }
 
-.social-bar img:hover {
+.social-bar img:hover, .social-bar i:hover {
   opacity: 1;
   filter: grayscale(0);
 }

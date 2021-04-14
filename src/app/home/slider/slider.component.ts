@@ -11,31 +11,79 @@ import { HelpersService } from '../../_services/helpers.service';
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
   animations: [
+    trigger('sliderVisibility', [
+      state('active', style({
+        'opacity':'1',
+        'transform':'translateY(0px)'
+      })),
+      state('hidden', style({
+        'opacity': '0',
+        'transform':'translateY(80px)'
+      })),
+      transition('* => *', animate(200))
+    ]),
     trigger('slide', [
       state('slide1', style({
-        'left':'0vw'
+        'left':'0%'
       })),
       state('slide2', style({
-        'left':'-100vw'
+        'left':'100%'
       })),
       state('slide3', style({
-        'left':'-200vw'
+        'left':'200%'
       })),
-      state('slide4', style({
-        'left':'-300vw'
-      })),
-      state('slide5', style({
-        'left':'-400vw'
-      })),
-      state('slide6', style({
-        'left':'-500vw'
-      })),
+      // state('slide4', style({
+      //   'left':'-300vw'
+      // })),
+      // state('slide5', style({
+      //   'left':'-400vw'
+      // })),
+      // state('slide6', style({
+      //   'left':'-500vw'
+      // })),
       transition('* => *', animate(500)),
+    ]),
+    trigger('slideOne', [
+      state('active', style({
+        'opacity':'1',
+        'z-index':'2'
+      })),
+      state('hidden', style({
+        'opacity': '0',
+        'z-index':'0'
+      })),
+      transition('* => *', animate(500))
+    ]),
+    trigger('slideTwo', [
+      state('active', style({
+        'opacity':'1',
+        'z-index':'2'
+      })),
+      state('hidden', style({
+        'opacity': '0',
+        'z-index':'0'
+      })),
+      transition('* => *', animate(500))
+    ]),
+    trigger('slideThree', [
+      state('active', style({
+        'opacity':'1',
+        'z-index':'2'
+      })),
+      state('hidden', style({
+        'opacity': '0',
+        'z-index':'0'
+      })),
+      transition('* => *', animate(500))
     ])
   ]
 })
 export class SliderComponent implements OnInit {
   sliderState = 'slide1';
+  slideOneState = 'active';
+  slideTwoState = 'hidden';
+  slideThreeState = 'hidden';
+  sliderShowState = 'hidden'
   slideNumber: number;
   autoplayActive: boolean;
   slide1HasLoaded: boolean;
@@ -63,6 +111,9 @@ export class SliderComponent implements OnInit {
 
 ngAfterViewInit() {
   if(isPlatformBrowser(this.platformId)) {
+    setTimeout(() => {
+      this.showSlider();
+    }, 1000);
 setInterval(()=> { this.autoplay(this.autoplayActive) }, 7 * 1000);
 if(window.innerWidth <= 480) {
   this.isMobile = true;
@@ -102,43 +153,43 @@ data => {
 
   nextSlide() {
     this.autoplayActive = false;
-    let nextNum = this.sliderState.split('').pop();
-    this.slideNumber = Number(nextNum);
-    if (this.slideNumber < 6) {
-    this.slideNumber++; }
-    else {
-      this.slideNumber = 1;
+    if(this.slideOneState == 'active') {
+      this.slideOneState = 'hidden';
+      this.slideTwoState = 'active';
     }
-    this.sliderState = 'slide' + this.slideNumber;
+    else if(this.slideTwoState == 'active') {
+      this.slideTwoState = 'hidden';
+      this.slideThreeState = 'active';
+    }
+    else if(this.slideThreeState == 'active') {
+      this.slideThreeState = 'hidden';
+      this.slideOneState = 'active';
+    }
   }
 
   prevSlide() {
-    this.autoplayActive = false;
-    let nextNum = this.sliderState.split('').pop();
-    this.slideNumber = Number(nextNum);
-    if(this.slideNumber > 1) {
-    this.slideNumber--;
-  } else {
-    this.slideNumber = 6;
-  }
-  this.sliderState = 'slide' + this.slideNumber;
+    if(this.slideOneState == 'active') {
+      this.slideOneState = 'hidden';
+      this.slideThreeState = 'active';
+    }
+    else if(this.slideTwoState == 'active') {
+      this.slideTwoState = 'hidden';
+      this.slideOneState = 'active';
+    }
+    else if(this.slideThreeState == 'active') {
+      this.slideThreeState = 'hidden';
+      this.slideTwoState = 'active';
+    }
   }
 
   autoplay(active) {
     if (active) {
-    let nextNum = this.sliderState.split('').pop();
-    this.slideNumber = Number(nextNum);
-    if (this.slideNumber < 6) {
-    this.slideNumber++; }
-    else {
-      this.slideNumber = 1;
+      this.nextSlide()
     }
-    this.sliderState = 'slide' + this.slideNumber;
-  }
   }
 
-  listenToLatestShow(show) {
-    this.playerService.playShow(show);
+  showSlider() {
+    this.sliderShowState = 'visible';
   }
 
   slideImage1HasLoaded() {
@@ -162,21 +213,4 @@ data => {
   }
   }
 
-  slideImage4HasLoaded() {
-    if(!this.isMobile) {
-    this.slide4HasLoaded = true;
-  }
-  }
-
-  slideImage5HasLoaded() {
-    if(!this.isMobile) {
-    this.slide5HasLoaded = true;
-  }
-  }
-
-  slideImage6HasLoaded() {
-    if(!this.isMobile) {
-    this.slide6HasLoaded = true;
-}
-  }
 }

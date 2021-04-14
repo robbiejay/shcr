@@ -13,6 +13,8 @@ declare let gtag: Function;
 export class AppComponent implements OnInit {
   title = 'hkcr';
   livestreamActive = false;
+  showHeader = true;
+  geolocation: any;
 
   constructor(public playerService: PlayerService,
               private router: Router,
@@ -20,28 +22,40 @@ export class AppComponent implements OnInit {
               @Inject(PLATFORM_ID) private platformId) {
 
                 this.router.events.subscribe(event => {
-                  if (event instanceof NavigationEnd && environment.production) {
-                    gtag('config', 'UA-171054401-1',
-                  {
-                    'page_path': event.urlAfterRedirects
-                  }
-                );
-                  }
+                //   if (event instanceof NavigationEnd && environment.production) {
+                //     gtag('config', 'UA-171054401-1',
+                //   {
+                //     'page_path': event.urlAfterRedirects
+                //   }
+                // );
+                //   }
                 })
 
                }
 
   ngOnInit() {
-
+    this.geolocation = this.playerService.getGeolocation();
+    console.log(this.playerService.getGeolocation());
+    console.log(this.geolocation);
   }
 
 
   ngAfterViewInit() {
     if(isPlatformBrowser(this.platformId)) {
+
+
       this.router.events.subscribe((evt) => {
           if (!(evt instanceof NavigationEnd)) {
               return;
           }
+
+          if(evt instanceof NavigationEnd) {
+            if(this.router.url == '/') {
+              this.showHeader = false;
+            }
+          }
+
+
           if(evt instanceof NavigationEnd && evt.url !== '/livestream' && evt.url !== '/') {
           var scrollToTop = window.setInterval(function () {
               var pos = window.pageYOffset;

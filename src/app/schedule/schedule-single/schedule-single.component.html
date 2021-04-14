@@ -16,7 +16,7 @@
 
           <div class="col-12 col-md-6">
             <h1 class='single-show-title'>{{show.title}}</h1>
-            <h2 class='single-show-date'>{{show.time}} <span style='font-size: 0.56em;'>HKT</span></h2>
+            <h2 class='single-show-date'>{{show.time}} <span style='font-size: 0.56em;'>UTC+8</span></h2>
             <h2 class='single-show-date'>{{show.date}}</h2>
             <p class='single-show-excerpt' [innerHtml]="show.content"></p>
           </div>
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="row">
-      <h1 class='single-show-title'>Latest Shows</h1>
+      <h1 class='single-show-title'>近期节目 / Latest Shows</h1>
     </div>
     <div class="row">
       <div class="col-6 col-sm-4 col-md-3" *ngFor="let show of latestShows">

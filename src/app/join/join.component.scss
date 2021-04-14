@@ -1,0 +1,117 @@
+.form-container {
+  width: 90vw;
+  margin: auto;
+  border: 1px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 7px;
+  max-width: 720px;
+  position: relative;
+  margin-top: 77px;
+  margin-bottom: 70px;
+  z-index: 1;
+}
+
+.form-container.form-confirmation {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-family: "Noto Sans SC", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 35px 0px 14px 0px;
+  font-size: 1.777em;
+  width: 100%;
+  text-align: center;
+}
+
+h1 i {
+  color: #0f0;
+  font-size: 5em;
+}
+
+.form-group {
+  padding: 7px 28px;
+}
+
+.radio-container {
+  padding: 7px;
+}
+
+.form-container .chinese-text {
+  font-family: 'Noto Sans SC' !important;
+
+}
+
+.form-container label .chinese-text {
+  font-size: 1.25em;
+}
+
+.radio-container p {
+  display: inline;
+  margin-left: 7px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+label {
+  font-size: 0.75em;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+input[type=text] {
+  border-radius: 7px;
+  border: 1px solid #0f0;
+  width: 100%;
+  padding: 7px 7px;
+}
+
+input[type=text]:focus {
+  outline: none;
+}
+
+textarea {
+  border-radius: 7px;
+  border: 1px solid #0f0;
+  width: 100%;
+  padding: 7px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+button {
+  width: 90%;
+  background: #fff;
+  margin-left: 5%;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 14px 0px;
+  text-align: center;
+  border: 1px solid #0f0;
+  border-radius: 7px;
+  margin-bottom: 28px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+button:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .form-container {
+  width: calc(100% - 14px);
+}
+}

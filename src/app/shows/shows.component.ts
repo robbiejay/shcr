@@ -93,7 +93,7 @@ this.getShows()
           }
           let titleArr = this.helpersService.HtmlEncode(show.title).split('–');
           let date = titleArr.pop();
-          let title = titleArr.join().trim();
+          let title = this.helpersService.HtmlEncode(show.title);
 
           let showData = {
             title: title,
@@ -129,7 +129,7 @@ this.getShows()
                   }
                   let titleArr = this.helpersService.HtmlEncode(item.title).split('–');
                   let date = titleArr.pop();
-                  let title = titleArr.join();
+                  let title = this.helpersService.HtmlEncode(item.title);
 
                   let postData = {
                     title: title,
@@ -170,7 +170,7 @@ this.getShows()
                 }
                 let titleArr = this.helpersService.HtmlEncode(item.title).split('–');
                 let date = titleArr.pop();
-                let title = titleArr.join();
+                let title = this.helpersService.HtmlEncode(item.title);
 
                 let postData = {
                   title: title,
@@ -198,13 +198,14 @@ this.getShows()
     this.isLoading = true;
     let page = 1;
     this.showPage = 1;
+    console.log(this.currentGenre.replace(/ /g, "-"));
     this.postsService.getTagTotalPages(this.currentGenre.replace(/ /g, "_").toLowerCase()).subscribe(
       data => {
       //  console.log('genre total pages is' + data.body);
         this.totalPages = data.body;
       }
     )
-    this.postsService.getShowsByTag(this.currentGenre.replace(/ /g, "_").toLowerCase(), page).subscribe(
+    this.postsService.getShowsByTag(this.currentGenre.replace(/ /g, "-").toLowerCase(), page).subscribe(
       data => {
         this.isLoading = false;
         data.body.forEach(item => {
@@ -217,7 +218,7 @@ this.getShows()
           }
           let titleArr = this.helpersService.HtmlEncode(item.title).split('–');
           let date = titleArr.pop();
-          let title = titleArr.join();
+          let title = this.helpersService.HtmlEncode(item.title)
 
           let postData = {
             title: title,
@@ -273,7 +274,7 @@ this.getShows()
                 }
                 let titleArr = this.helpersService.HtmlEncode(item.title).split('–');
                 let date = titleArr.pop();
-                let title = titleArr.join();
+                let title = this.helpersService.HtmlEncode(item.title);
 
                 let postData = {
                   title: title,
@@ -300,7 +301,7 @@ this.getShows()
               }
               let titleArr = this.helpersService.HtmlEncode(show.title).split('–');
               let date = titleArr.pop();
-              let title = titleArr.join().trim();
+              let title = this.helpersService.HtmlEncode(show.title);
 
               let showData = {
                 title: title,

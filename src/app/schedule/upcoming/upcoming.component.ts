@@ -14,6 +14,7 @@ import * as moment from 'moment-timezone';
 })
 export class UpcomingComponent implements OnInit {
   upcomingShows = [];
+  originalUpcomingShows = [];
   constructor(private postsService: PostsService,
               private helpersService: HelpersService,
               private router: Router,
@@ -36,8 +37,10 @@ export class UpcomingComponent implements OnInit {
   mode: string;
   isLoading: boolean;
 
+  currentCategory = '';
+
   daysOfWeek = [
-    'SUN','MON','TUE','WED',"THU","FRI","SAT"
+    '周日/SUN','周一/MON','周二/TUE','周三/WED',"周四/THU","周五/FRI","周六/SAT"
   ]
 
 
@@ -79,17 +82,20 @@ this.getUpcomingShows();
   let upNext = false;
 
         data.forEach(upcoming => {
-
           this.isLoading = false;
           let featured_img;
           if(upcoming._embedded["wp:featuredmedia"] == undefined) {
-            featured_img = "assets/default_show.png";
+            featured_img = "assets/default-show.png";
           } else {
+            if(upcoming._embedded['wp:featuredmedia'][0].media_details == undefined ) {
+              featured_img = "assets/default-show.png";
+            } else {
             featured_img = upcoming._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url;
+          }
           }
 
           let excerpt = this.helpersService.HtmlEncode(upcoming.excerpt.rendered.replace(/<[^>]*>/g, ''));
-
+          // console.log(excerpt);
           let excerptArr = excerpt.split('–');
           let date = excerptArr[0].trim().replace( /\//g, '-').split('-').reverse().join('-');
           let time = excerptArr[1].trim();
@@ -136,13 +142,22 @@ this.getUpcomingShows();
               now_playing = true;
             }
           }
+          let titleArr = this.helpersService.HtmlEncode(upcoming.title.rendered).split('[');
+          let title = titleArr[0];
+          let categoryArr = titleArr[1].split(']');
+          let category = categoryArr[0];
 
+          if (category == 'Performance') { category = '表演/' + category}
+          if (category == 'Workshop') { category = '工作坊/' + category}
+          if (category == 'Panel Talk') { category = '论坛/' + category}
           let upcomingData = {
-            title: this.helpersService.HtmlEncode(upcoming.title.rendered),
+            title: title,
+            category: category,
             content: this.helpersService.HtmlEncode(upcoming.content.rendered.replace(/<[^>]*>/g, '')),
-            filename: this.helpersService.HtmlEncode(upcoming.title.rendered).replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase(),
+            filename: date + '-' + this.helpersService.HtmlEncode(upcoming.title.rendered).replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase(),
             excerpt: this.helpersService.HtmlEncode(upcoming.excerpt.rendered.replace(/<[^>]*>/g, '')),
-            date : date,
+            date : moment(date).format('YYYY-MM-DD'),
+            dateDisplay: moment(date).format('DD/MM/YYYY'),
             time: time,
             day: day,
             local_time: local_time,
@@ -151,6 +166,8 @@ this.getUpcomingShows();
             now_playing: now_playing,
             up_next: up_next
           }
+
+
 
           if (!upcomingData.has_show_aired) {
           this.upcomingShows.push(upcomingData);
@@ -191,11 +208,23 @@ this.getUpcomingShows();
 
         }
       })
+      this.originalUpcomingShows = this.upcomingShows;
   }
 }
 
 goTo(location) {
   this.router.navigate(['schedule/' + location])
+}
+
+filterBy(category) {
+  if (this.currentCategory == category) {
+    this.upcomingShows = this.originalUpcomingShows;
+    this.currentCategory = '';
+  } else {
+    this.upcomingShows = this.originalUpcomingShows.filter(show => show.category == category);
+    this.currentCategory = category
+  }
+
 }
 
 }

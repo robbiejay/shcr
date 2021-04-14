@@ -116,7 +116,18 @@ top: -98px;
 }
 }
 
+@media (max-width: 768px) {
+
+  .fluid-container {
+    width: calc(100% - 64px);
+    margin-left: 64px;
+  }
+}
+
 @media (max-width: 540px) {
+
+
+
 .single-post-title {
   top: -70px;
   font-size: 1.777em;

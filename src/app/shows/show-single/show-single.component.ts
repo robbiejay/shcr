@@ -74,7 +74,7 @@ export class ShowSingleComponent implements OnInit {
         }
         let titleArr = this.helpersService.HtmlEncode(data.title).split('–');
         let date = titleArr.pop();
-        let title = titleArr.join();
+        let title = this.helpersService.HtmlEncode(data.title)
 
         let contentY = this.splitShowYoutube(this.helpersService.HtmlEncode(data.content))
         let contentB = this.splitShowBiliBili(this.helpersService.HtmlEncode(contentY))
@@ -124,6 +124,32 @@ export class ShowSingleComponent implements OnInit {
     contentArr.forEach((chunk, index) => {
       if (index !== 0) {
         let chunkArr = chunk.split('[/bilibili]');
+
+        if(chunkArr[0].includes('href')) {
+          console.log('includes href');
+          let arrWithoutHref = chunkArr[0].split('<a href="');
+          let linkWithoutaTag = arrWithoutHref[1].split("</a>");
+          chunkArr[0] = linkWithoutaTag[0];
+        }
+
+        console.log(chunkArr[0])
+
+
+        if(chunkArr[0].includes('”')) {
+          console.log('has ”');
+          let newChunkArr0 = chunkArr[0].split('”');
+          newChunkArr0.find((item) => {
+            if(item.includes('//player')) {
+              let bilibiliCutOutLink = item.split('″')
+              chunkArr[0] = bilibiliCutOutLink[0];
+            }
+          });
+        }
+
+        if(chunkArr[0].includes('&page=1')) {
+          let newChunkArr0 = chunkArr[0].split('&page=1');
+          chunkArr[0] = newChunkArr0[0];
+        }
         this.bilibiliVideo = chunkArr[0];
         chunk = chunkArr[1];
       }

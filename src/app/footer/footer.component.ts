@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, Inject } from '@angular/core';
+import { Component, OnInit, Renderer2, Inject, Input } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
 import { PostsService} from '../_services/posts.service';
 import { PlayerService } from '../_services/player.service';
@@ -10,6 +10,7 @@ import { PlayerService } from '../_services/player.service';
 })
 export class FooterComponent implements OnInit {
 
+  @Input() showHeader: boolean;
   currentYear = new Date().getDate();
   timestamp = '';
   megaAcidMode = false;
@@ -29,15 +30,5 @@ export class FooterComponent implements OnInit {
         this.timestamp = data;
       }
     )
-  }
-
-  toggleMegaAcidMode() {
-    if(!this.megaAcidMode) {
-    this.renderer2.addClass(this._document.body, 'acid-mode');
-    this.megaAcidMode = true;
-  } else if (this.megaAcidMode) {
-    this.renderer2.removeClass(this._document.body, 'acid-mode');
-    this.megaAcidMode = false;
-  }
   }
 }
