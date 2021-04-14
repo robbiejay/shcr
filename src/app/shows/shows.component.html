@@ -35,7 +35,7 @@
   </ng-template> -->
   <div [@fade]='state' class='show-card'>
     <div class='row'>
-      <div class='col-12' (click)="goTo(show.url)">
+      <div class='col-12' (click)='playShow(show.soundcloud, show.netease, geolocation.country_code, show.url)'>
     <div class='show-image'>
       <i class="fas fa-play play-icon"></i>
       <img [src]="show.featured_image">

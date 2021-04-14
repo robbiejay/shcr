@@ -1,4 +1,5 @@
 <div class='player' [@slide]='state'>
   <button *ngIf='this.playerService.hasOpenedShow' class='close-player' [@btn-slide]='btnState' (click)='togglePlayer()'>{{playerState}}</button>
-  <iframe id='mixcloud-widget' width="100%" height="60" [src]="this.playerService?.show | safe" frameborder="0" ></iframe>
+  <iframe id='soundcloud-widget' width="100%" height="106" [src]="this.playerService?.show | safe" frameborder="0" ></iframe>
+  <!-- <iframe id='netease-widget' width="100%" height="106" scrolling="no" frameborder="no" allow="autoplay" [src]="this.playerService?.show | safe"></iframe> -->
 </div>

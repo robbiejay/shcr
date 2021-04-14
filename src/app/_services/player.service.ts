@@ -15,6 +15,8 @@ export class PlayerService {
   public upNext = '';
   public livestreamActive = false;
   public hasOpenedShow = false;
+  private ipAddress = '';
+  public isCN = false;
   //public state = 'slidOut';
 
   constructor(private http: HttpClient) {
@@ -24,11 +26,17 @@ export class PlayerService {
     })
   }
 
-    playShow(show) {
+    playShow(isCN, show) {
       this.playerVisibilityChange.next(true);
+      if(show.includes('src="')) {
+      let arr = show.split('src="');
+      let show_arr_2 = arr[1].split('"');
+      this.show = show_arr_2[0];
+    } else {
       this.show = show;
+    }
       this.hasOpenedShow = true;
-
+      isCN ? this.isCN = true : this.isCN = false;
     }
 
 
@@ -40,9 +48,13 @@ export class PlayerService {
       this.playerVisibilityChange.next(!this.isPlayerVisible);
     }
 
-    getGeolocation(): Observable<any> {
+    getIP(): Observable<any> {
+      return this.http.get("http://api.ipify.org/?format=json");
+    }
+
+    getGeolocation(ip): Observable<any> {
       return this.http.get(
-        'https://api.ipstack.com/134.201.250.155?access_key=0b7d3fba770c0d0a82b320db05b06dcf',
+        'http://api.ipstack.com/'+ip+'?access_key=0b7d3fba770c0d0a82b320db05b06dcf',
         {responseType: 'json'}
       );
     }

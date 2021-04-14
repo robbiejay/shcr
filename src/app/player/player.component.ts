@@ -10,7 +10,7 @@ import { PlayerService } from '../_services/player.service';
     trigger('slide', [
       state('slidOut', style({
         'opacity': '1',
-        'bottom':'-120px'
+        'bottom':'-166px'
       })),
       state('slidIn', style({
         'opacity': '1',
@@ -26,7 +26,7 @@ import { PlayerService } from '../_services/player.service';
       })),
       state('btn-slidIn', style({
         'opacity': '1',
-        'bottom':'60px'
+        'bottom':'106px'
       })),
       transition('btn-slidOut => btn-slidIn', animate(200)),
       transition('btn-slidIn => btn-slidOut', animate(200)),
@@ -53,7 +53,7 @@ export class PlayerComponent implements OnInit {
       } else {
         this.state = 'slidOut';
         this.btnState = 'btn-slidOut';
-        this.playerState = 'O';
+        this.playerState = '^';
       }
     })
   }

@@ -1,14 +1,13 @@
 .player {
   position: fixed;
   // background-color: #ff0000;
-  background-color: #ffdf00;
-  height: 3.75rem;
+  background: rgba(255,255,255,0.5);
+  height: 106px;
   width: 100%;
   z-index: 99;
 }
 
 .close-player {
-  background-color: rgba(255,222,0,1);
   box-shadow: 0px -4px 6px 0px rgba(255,255,255,0.8) inset;
   color: #000;
   border-radius: 12px;
@@ -19,7 +18,7 @@
   border-bottom: 12px solid #ffdf00;
   font-size: 0.75em;
   font-weight: 700;
-  font-family: "Exo 2 Sans";
+  font-family: "Noto Sans SC";
   position: fixed;
   bottom: 60px;
   right: 24px;

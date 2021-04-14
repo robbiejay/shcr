@@ -188,7 +188,7 @@ export class ShowSingleComponent implements OnInit {
 
   listenShow(show){
     if(show !== "") {
-    this.playerService.playShow(show);
+    this.playerService.playShow(true, show);
     }
   }
 

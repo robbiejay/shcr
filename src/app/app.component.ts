@@ -34,9 +34,6 @@ export class AppComponent implements OnInit {
                }
 
   ngOnInit() {
-    this.geolocation = this.playerService.getGeolocation();
-    console.log(this.playerService.getGeolocation());
-    console.log(this.geolocation);
   }
 
 

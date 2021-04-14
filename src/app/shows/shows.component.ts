@@ -31,6 +31,7 @@ export class ShowsComponent implements OnInit {
   currentGenre = '';
   currentGenreID = '';
   state='fadeIn';
+  geolocation : any;
 
   mode: string;
 
@@ -60,6 +61,17 @@ this.mode = 'home'
 this.mode = 'archive'
 }
 
+this.playerService.getIP().subscribe(
+  res => {
+    this.playerService.getGeolocation(res.ip).subscribe(
+      data => {
+        this.geolocation = data;
+        console.log(this.geolocation);
+      }
+    );
+  }
+)
+
 this.getShows()
 }
   }
@@ -68,8 +80,13 @@ this.getShows()
 
   }
 
-  listenShow(show){
-    this.playerService.playShow(show);
+  playShow(soundcloud, netease, geolocation, url){
+    if(!soundcloud && !netease) {
+      this.goTo(url)
+    } else {
+    geolocation == "CN" ? this.playerService.playShow(true, netease) :
+    this.playerService.playShow(false, soundcloud)
+  }
   }
 
 
@@ -84,6 +101,7 @@ this.getShows()
     this.postsService.getShows(this.showPage).subscribe(
       data => {
         this.isLoading = false;
+        console.log(data);
         data.body.forEach(show => {
           let featured_img;
           if(show.image_full == "DEFAULT") {
@@ -94,7 +112,6 @@ this.getShows()
           let titleArr = this.helpersService.HtmlEncode(show.title).split('–');
           let date = titleArr.pop();
           let title = this.helpersService.HtmlEncode(show.title);
-
           let showData = {
             title: title,
             date: date,
@@ -102,6 +119,8 @@ this.getShows()
             excerpt: this.helpersService.HtmlEncode(show.excerpt),
             featured_image: featured_img,
             tags: show.tags,
+            soundcloud: show.soundcloud,
+            netease: show.netease
           }
           this.shows.push(showData);
         })
